@@ -125,6 +125,14 @@ ul {
   border: 1px solid var(--color-white);
 }
 
+.navbar__toggle-btn {
+  position: absolute;
+  top: 22px;
+  right: 32px;
+  color: var(--color-white);
+  font-size: 24px;
+  display: none; /*opacity로 하면 안된다. */
+}
 /* Home */
 #home {
   background: url('imgs/background.png') center/cover no-repeat;
@@ -452,4 +460,49 @@ ul {
 .contact__links i:hover {
   transform: scale(1.1);
   color: var(--color-yellow);
+}
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+  }
+
+  .about__majors {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .major {
+    margin-bottom: 38px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
