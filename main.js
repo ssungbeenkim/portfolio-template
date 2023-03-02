@@ -11,18 +11,25 @@ document.addEventListener('scroll', () => {
   }
 });
 
-// scroll into view
-// 클릭되면 해당 아이템으로 scroll into view
+// nav menu click scroll
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
   const link = event.target.dataset.link;
   if (!link) {
     return;
   }
-  console.log(link);
-  const element = document.querySelector(`${link}`);
+  scrollIntoView(link);
+});
+
+// contact me button
+const contactMe = document.querySelector('.home__contact');
+contactMe.addEventListener('click', () => {
+  scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector) {
+  const element = document.querySelector(selector);
   element.scrollIntoView({
     behavior: 'smooth',
-    block: 'start',
   });
-});
+}
