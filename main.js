@@ -34,17 +34,30 @@ function scrollIntoView(selector) {
   });
 }
 
-// scroll , home transparent
-// home height getboundingclientrect
-// opacity => 0~100% =>
-//bottom 받아와서 0에 가까워지면 0, height에 가까워지면 100 으로 한다.
+// scroll , home & arrowup transparent
 const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 window.addEventListener('scroll', () => {
   const bottom = home.getBoundingClientRect().bottom;
   if (bottom < 0) {
     return;
+  } else {
+    const ratio = (bottom / homeHeight) * 100;
+    home.style.opacity = `${ratio}%`;
   }
-  const ratio = (bottom / homeHeight) * 100;
-  home.style.opacity = `${ratio}%`;
+});
+
+// Arrow up button
+const arrowUp = document.querySelector('.arrow-up');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add('visible');
+  } else {
+    arrowUp.classList.remove('visible');
+  }
+});
+
+arrowUp.addEventListener('click', () => {
+  scrollIntoView('#home');
 });

@@ -146,7 +146,7 @@ ul {
 /* Home */
 #home {
   background: url('imgs/background.png') center/cover no-repeat;
-  padding: 80px 40px;
+  padding: 40px;
   padding-top: 120px;
   text-align: center;
 }
@@ -471,6 +471,27 @@ ul {
 .contact__links i:hover {
   transform: scale(1.1);
   color: var(--color-yellow);
+}
+
+/* arrow-up button */
+.arrow-up {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #006505;
+  border-radius: 50%;
+  transition: all var(--animation-duration) ease-in;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* For below 768px screen width */
