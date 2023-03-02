@@ -146,7 +146,7 @@ ul {
 /* Home */
 #home {
   background: url('imgs/background.png') center/cover no-repeat;
-  padding: 40px;
+  padding: 80px 40px;
   padding-top: 120px;
   text-align: center;
 }
