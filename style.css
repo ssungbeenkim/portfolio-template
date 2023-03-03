@@ -15,6 +15,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-matrix: #006505;
+  --color-dark-matrix: #033906;
 
   /* Font size */
   --font-large: 48px;
@@ -128,7 +129,7 @@ ul {
 }
 
 .navbar__menu__item:hover {
-  background-color: var(--color-dark-pink);
+  background-color: var(--color-dark-matrix);
 }
 
 .navbar__menu__item.active {
@@ -348,6 +349,13 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  transition: all var(--animation-duration) ease-out;
+  opacity: 1;
+}
+
+.work__projects.anim-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -359,6 +367,10 @@ ul {
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+}
+
+.project.invisible {
+  display: none;
 }
 
 .project__img {
