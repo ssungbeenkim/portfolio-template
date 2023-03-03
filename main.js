@@ -1,6 +1,6 @@
 'use strict';
 
-// navbar beautiful
+// navbar beautiful & nav button state
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
@@ -13,6 +13,7 @@ document.addEventListener('scroll', () => {
 
 // nav menu click scroll
 const navbarMenu = document.querySelector('.navbar__menu');
+const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
 navbarMenu.addEventListener('click', (event) => {
   const link = event.target.dataset.link;
   if (!link) {
@@ -62,13 +63,9 @@ arrowUp.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
-// work filtering
-
-// 배열에 쿼리셀렉터로 받아와서 넣어두고,
-// 버튼이 클릭되면 원본 배열을 map 해서 dataset이 해당하는 것만 classlist 에 visible 넣어주고 나머지 빼주기.
-// all 버튼이 클릭되면 모든 것에서 visible 넣어준다.
-// 내려가면서 사라지는 것은, opacity 0으로 하면서 transform : translat 하면 될듯하고
+// work filtering & button state
 const workBtnContainer = document.querySelector('.work__categories');
+const workBtns = document.querySelectorAll('.category__btn');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (event) => {
@@ -77,8 +74,14 @@ workBtnContainer.addEventListener('click', (event) => {
   if (!filter) {
     return;
   }
-  projectContainer.classList.add('anim-out');
 
+  const selected = document.querySelector('.category__btn.active');
+  selected.classList.remove('active');
+  const target =
+    event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  target.classList.add('active');
+
+  projectContainer.classList.add('anim-out');
   setTimeout(() => {
     projectContainer.classList.remove('anim-out');
     projects.forEach((elem) => {
