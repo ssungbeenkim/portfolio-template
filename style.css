@@ -513,6 +513,8 @@ ul {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 16px;
+    background-color: var(--color-matrix);
   }
 
   .navbar__menu {
@@ -521,6 +523,10 @@ ul {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .navbar__menu li {

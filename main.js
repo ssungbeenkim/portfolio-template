@@ -20,6 +20,13 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
   scrollIntoView(link);
+  navbarMenu.classList.remove('open');
+});
+
+// navbar toggle
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // contact me button
