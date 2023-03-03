@@ -39,6 +39,7 @@ function scrollIntoView(selector) {
   const element = document.querySelector(selector);
   element.scrollIntoView({
     behavior: 'smooth',
+    block: 'start',
   });
 }
 

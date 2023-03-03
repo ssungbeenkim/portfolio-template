@@ -136,8 +136,8 @@ ul {
 
 .navbar__toggle-btn {
   position: absolute;
-  top: 22px;
-  right: 32px;
+  top: 15px;
+  right: 15px;
   color: var(--color-white);
   font-size: 24px;
   display: none; /*opacity로 하면 안된다. */
@@ -171,6 +171,9 @@ ul {
   border-radius: 4px;
 }
 
+.home__contact:hover {
+  background-color: var(--color-dark-matrix);
+}
 /* Section common */
 .section {
   padding: 50px;
@@ -316,6 +319,7 @@ ul {
   font-size: var(--font-regular);
   padding: 8px 48px;
   width: 220px;
+  position: relative;
 }
 .category__btn.active,
 .category__btn:hover {
@@ -331,8 +335,9 @@ ul {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
+  right: 40px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -457,7 +462,7 @@ ul {
 /* Contact */
 
 #contact {
-  background-color: var(--color-pink);
+  background-color: var(--color-matrix);
 }
 
 .contact__title,
@@ -507,6 +512,14 @@ ul {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
   .navbar__toggle-btn {
     display: block;
   }
@@ -533,25 +546,66 @@ ul {
     width: 100%;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 40px;
+  }
+
+  .about__jobs {
+    margin-bottom: 30px;
+  }
+
   .about__majors {
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom: 0;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    width: 40%;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .category__count {
+    right: 13%;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .testimonials {
+    margin: 16px;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    margin: 32px 0;
+    align-items: center;
+  }
+
   .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .testimonial__avatar:nth-child(even),
+  .testimonial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
   }
 }
