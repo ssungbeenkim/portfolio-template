@@ -23,7 +23,7 @@ navbarMenu.addEventListener('click', (event) => {
   navbarMenu.classList.remove('open');
 });
 
-// navbar toggle
+// navbar menu toggle
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
   navbarMenu.classList.toggle('open');
@@ -91,6 +91,7 @@ workBtnContainer.addEventListener('click', (event) => {
 
   projectContainer.classList.add('anim-out');
   setTimeout(() => {
+    // 애니메이션 이후에 바꿔주기 위함.
     projectContainer.classList.remove('anim-out');
     projects.forEach((elem) => {
       if (filter === '*' || filter === elem.dataset.type) {
@@ -100,4 +101,24 @@ workBtnContainer.addEventListener('click', (event) => {
       }
     });
   }, 300);
+});
+
+// scrollspy
+
+// 스크롤스파이.
+// .section 다 가져와서별로 el.pageY와
+
+const sections = document.querySelectorAll('.section');
+console.log(sections);
+document.addEventListener('scroll', () => {
+  // const elemTop = sections.offsetTop;
+  // const elemBottom = about.offsetBttom;
+  // const scrollY = window.scrollY;
+
+  sections.forEach((elem) => {
+    const checkpoint = elem.offsetHeight / 4;
+    if (window.scrollY + (window.innerHeight * 2) / 3 > elem.offsetTop) {
+      console.log(elem);
+    }
+  });
 });
