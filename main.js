@@ -1,6 +1,6 @@
 'use strict';
 
-// navbar beautiful & nav button state
+// navbar beautiful
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
@@ -21,6 +21,29 @@ navbarMenu.addEventListener('click', (event) => {
   }
   scrollIntoView(link);
   navbarMenu.classList.remove('open');
+});
+
+// scrollspy
+// 초기 home에 acrive 주고, 섹션에 Observer걸고 isIntersecting 에 threshold 0.5 true인 것에 active 해주기
+const sections = document.querySelectorAll('.section');
+const callback = (entries, observe) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const activeItem = document.querySelector('.navbar__menu__item.active');
+      activeItem.classList.remove('active');
+      const sectionId = entry.target.id;
+      const menuItem = document.querySelector(`[data-link="#${sectionId}"]`);
+      menuItem.classList.add('active');
+    }
+  });
+};
+
+const options = {
+  threshold: [0.4, 0.9],
+};
+const observer = new IntersectionObserver(callback, options);
+sections.forEach((section) => {
+  observer.observe(section);
 });
 
 // navbar menu toggle
@@ -101,24 +124,4 @@ workBtnContainer.addEventListener('click', (event) => {
       }
     });
   }, 300);
-});
-
-// scrollspy
-
-// 스크롤스파이.
-// .section 다 가져와서별로 el.pageY와
-
-const sections = document.querySelectorAll('.section');
-console.log(sections);
-document.addEventListener('scroll', () => {
-  // const elemTop = sections.offsetTop;
-  // const elemBottom = about.offsetBttom;
-  // const scrollY = window.scrollY;
-
-  sections.forEach((elem) => {
-    const checkpoint = elem.offsetHeight / 4;
-    if (window.scrollY + (window.innerHeight * 2) / 3 > elem.offsetTop) {
-      console.log(elem);
-    }
-  });
 });

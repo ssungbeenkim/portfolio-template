@@ -1,1 +1,3 @@
 # Portfolio website making
+
+- 스크롤시 또는 버튼 클릭 이동할 시 navbar menu items 부분 수정이 필요.

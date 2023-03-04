@@ -134,6 +134,10 @@ ul {
   border: 1px solid var(--color-white);
 }
 
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
 .navbar__toggle-btn {
   position: absolute;
   top: 15px;
