@@ -24,7 +24,7 @@ navbarMenu.addEventListener('click', (event) => {
 });
 
 // scrollspy
-// 초기 home에 acrive 주고, 섹션에 Observer걸고 isIntersecting 에 threshold 0.5 true인 것에 active 해주기
+// index를 활용할 수도 있었다.
 const sections = document.querySelectorAll('.section');
 const callback = (entries, observe) => {
   entries.forEach((entry) => {
@@ -37,7 +37,6 @@ const callback = (entries, observe) => {
     }
   });
 };
-
 const options = {
   threshold: [0.4, 0.9],
 };
